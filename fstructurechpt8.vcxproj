@@ -100,14 +100,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="buffile.cpp" />
-    <ClCompile Include="heapsort.cpp" />
+    <ClCompile Include="heapsort.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="iobuffer.cpp" />
     <ClCompile Include="ledger.cpp" />
     <ClCompile Include="ledgpost.cpp" />
     <ClCompile Include="length.cpp" />
     <ClCompile Include="match.cpp" />
-    <ClCompile Include="mkfile.cpp" />
-    <ClCompile Include="post.cpp" />
+    <ClCompile Include="mkfile.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="post.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="strclass.cpp" />
     <ClCompile Include="strlist.cpp" />
     <ClCompile Include="varlen.cpp" />
