@@ -51,6 +51,18 @@
     <ClCompile Include="varlen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="z-testPostTransaction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TranscriptProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CourseRegistration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="student.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="buffile.h">
@@ -84,6 +96,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="varlen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TranscriptProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CourseRegistration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="student.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

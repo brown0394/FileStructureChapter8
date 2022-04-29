@@ -20,7 +20,7 @@ class MasterTransactionProcess: public CosequentialProcess<ItemType>
 
 template <class ItemType>
 MasterTransactionProcess<ItemType>::MasterTransactionProcess ()
-: CosequentialProcess<int>(2)
+: CosequentialProcess<ItemType>(2)
 {}
 
 template <class ItemType>

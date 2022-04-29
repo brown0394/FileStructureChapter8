@@ -34,7 +34,7 @@ int BufferFile::Create(char * filename, int mode)
 // use ios::nocreate to ensure that no file exists
 {
 	if (!(mode & ios::out)) return FALSE; // must include ios::out
-	File.open(filename, mode | ios::out | ios::binary);
+	File.open(filename, mode | ios::out | ios::trunc | ios::binary);
 	if (!File.good())
 	{
 		File.close();
