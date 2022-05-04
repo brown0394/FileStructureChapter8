@@ -8,9 +8,10 @@
 #include "length.h"
 #include "student.h"
 #include "CourseRegistration.h"
+#include "strclass.h"
 #include <vector>
 
-class TranscriptProcess : public MasterTransactionProcess<long>
+class TranscriptProcess : public MasterTransactionProcess<String>
 	// Transcript processing of a Transcript file and a journal file
 	// the item type is int to represent an account number
 {
@@ -21,7 +22,7 @@ public:
 	int InitializeList(int ListNumber, char* List1Name);
 	int InitializeOutput(char* OutputListName);
 	int NextItemInList(int ListNumber); //get next item from this list
-	long Item(int ListNumber); // return current item from this list
+	String Item(int ListNumber); // return current item from this list
 	int ProcessItem(int ListNumber); // process the item in this list
 	int FinishUp(); // complete the processing
 

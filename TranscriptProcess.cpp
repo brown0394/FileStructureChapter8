@@ -1,8 +1,8 @@
 #include "TranscriptProcess.h"
 #include <iomanip>
-#include <string>
+//#include <string>
 TranscriptProcess::TranscriptProcess()
-	: MasterTransactionProcess<long>(), StudentFile(Sbuffer), CourseFile(Cbuffer), filename(nullptr)
+	: MasterTransactionProcess<String>(), StudentFile(Sbuffer), CourseFile(Cbuffer), filename(nullptr)
 {
 	PrevCredit = 0;
 	StudentNumber[1] = new char[10];
@@ -42,10 +42,10 @@ int TranscriptProcess::NextItemInList(int ListNumber)
 	return FALSE;
 }
 
-long TranscriptProcess::Item(int ListNumber)
+String TranscriptProcess::Item(int ListNumber)
 // return current item from this list
 {
-	return stol(StudentNumber[ListNumber]);
+	return String(StudentNumber[ListNumber]);
 }
 
 int TranscriptProcess::ProcessItem(int ListNumber)
@@ -154,7 +154,7 @@ int TranscriptProcess::NextItemInCourse()
 }
 
 char TranscriptProcess::LowNum = '0';
-char TranscriptProcess::HighNum[10]{ "999999999" };
+char TranscriptProcess::HighNum[10]{ "300000000" };
 
 TranscriptProcess::~TranscriptProcess() {
 	while (!students.empty()) {
