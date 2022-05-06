@@ -48,6 +48,8 @@ protected:
 	int NextItemInStudent();
 	int NextItemInCourse();
 
+	vector<int> RecAddrs;
+	int RecAddr;
 	vector<Student*> students;
 	char* filename;
 };

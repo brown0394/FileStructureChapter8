@@ -4,7 +4,7 @@
 TranscriptProcess::TranscriptProcess()
 	: MasterTransactionProcess<String>(), StudentFile(Sbuffer), CourseFile(Cbuffer), filename(nullptr)
 {
-	PrevCredit = 0;
+	PrevCredit = 0; RecAddr = 0;
 	StudentNumber[1] = new char[10];
 	StudentNumber[2] = new char[10];
 	StudentNumber[0] = nullptr;
@@ -90,7 +90,11 @@ ostream& PrintCreditHours(ostream& stream,
 int TranscriptProcess::ProcessEndMaster()// after all transactions for a master
 {// print the balances line to output	
 	PrintCreditHours(OutputList, PrevCredit, student.getCredit());
-	students.push_back(new Student(student));
+	//students.push_back(new Student(student));
+	if (PrevCredit != student.getCredit()) {
+		students.push_back(new Student(student));
+		RecAddrs.push_back(RecAddr);
+	}
 	return TRUE;
 }
 
@@ -105,19 +109,14 @@ int TranscriptProcess::ProcessTransactionError()// no master for transaction
 int TranscriptProcess::FinishUp()
 // complete the processing
 {
-	StudentFile.Close();
 	CourseFile.Close();
 	OutputList.close();
-
 	if (!students.empty()) {
-		if (!StudentFile.Create(filename, ios::out)) {
-			return FALSE;
-		}
 		for (int i = 0; i < students.size(); ++i) {
-			StudentFile.Write(*students[i]);
+			StudentFile.Write(*students[i], RecAddrs[i]);
 		}
-		StudentFile.Close();
 	}
+	StudentFile.Close();
 	return TRUE;
 }
 
@@ -129,6 +128,7 @@ int TranscriptProcess::NextItemInStudent()
 		strcpy(StudentNumber[1], HighNum);
 		return FALSE;
 	}
+	RecAddr = res;
 	if (strcmp(student.getId(), StudentNumber[1]) < 0)
 	{
 		cerr << "Student id out of order" << endl; exit(0);
